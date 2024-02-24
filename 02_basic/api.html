@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 0	UNSENT	Client has been created. open() not called yet.
+    1	OPENED	open() has been called.
+    
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    
+    3	LOADING	Downloading; responseText holds partial data.
+
+    4	DONE	The operation is complete. -->
+
+    <script>
+       const url ='https://catfact.ninja/breeds?limit=1';
+       const xml = new XMLHttpRequest();
+       xml.open('get',url)
+       xml.onreadystatechange = function (){
+        console.log(xml.readyState);
+            if(xml.readyState === 4){
+                const datda =(this.response);
+                console.log(JSON.parse(datda));
+                console.log(datda[0]);
+            }
+       }
+       xml.send();
+
+    </script>
+
+</body>
+</html>
