@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Lexical enviorment child can scces parents elem || but parnets can acces child elem even same 2 inner diff inner fun cant acces each other elem
+        function myfun(){
+            let name ="dhruv";
+            function myfun2(){
+                // console.log( "inner function",name);
+            }
+            myfun2()
+        }
+        // console.log(myfun());
+    </script>
+
+    <script>
+        // closur ex
+        function closer(){
+            let name ="bharagv";
+            function innerCloser(){
+                console.log(name);
+            }
+            return innerCloser();
+        }
+
+        let fun =closer();
+        console.log(fun);
+    </script>
+</body>
+</html>
